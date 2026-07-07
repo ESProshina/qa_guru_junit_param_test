@@ -13,8 +13,6 @@ public class TestStudentRegistrationForm extends TestBase {
 
     private final String successfulMessage = "Thanks for submitting the form";
 
-    // ============ СУЩЕСТВУЮЩИЕ ТЕСТЫ ============
-
     @Test
     void successfulFillFormTest() {
         open("/automation-practice-form");
@@ -122,9 +120,7 @@ public class TestStudentRegistrationForm extends TestBase {
 
     }
 
-    // ============ ПАРАМЕТРИЗОВАННЫЕ ТЕСТЫ ============
 
-    // 1. Параметризованный тест для полной формы
     @CsvFileSource(resources = "/test_data/successfulFillFormTest.csv", numLinesToSkip = 1)
     @ParameterizedTest(name = "Заполнение формы: {0} {1} (Пол: {3}, Дата: {6} {5}, {7})")
     public void fillFormWithDifferentDataTest(String firstName, String lastName,
@@ -181,7 +177,7 @@ public class TestStudentRegistrationForm extends TestBase {
         $("#closeLargeModal").click();
     }
 
-    // 2. Параметризованный тест для обязательных полей
+
     @CsvFileSource(resources = "/test_data/successfulMandatoryFieldsTest.csv", numLinesToSkip = 1)
     @ParameterizedTest(name = "Обязательные поля: {0} {1} (Пол: {3}, Телефон: {4})")
     public void mandatoryFieldsWithDifferentDataTest(String firstName, String lastName,
